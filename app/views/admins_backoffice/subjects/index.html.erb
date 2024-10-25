@@ -1,0 +1,45 @@
+<%# @admins.inspect%>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"> Assunto/Área</h1>
+    </div>       
+</div>
+<hr>
+<div class="card-body"> 
+    <div class="table-responsive">
+        <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" >
+            <table class="table table-bordered dataTable" width="100%" cellspacing="0"  aria-describedby="dataTable_info" style="width: 100%">
+            <thead>
+                <tr >
+                    <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 194.033px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">#</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 314.683px;" aria-label="Position: activate to sort column ascending">Descrição</th>
+                    <th>
+                        <%=link_to new_admins_backoffice_subject_path, class:"icon text-white-50"  do %>
+                                <i class="fas fa-plus"> Novo Assunto/Área</i>  
+                        <% end %>  
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @subjects.each do |subject| %>   
+                    <tr >
+                        <td > <%= subject.id%></td>
+                        <td> <%= subject.description %> </td>
+                        <td style="witdh: 100px"> 
+                            <%=link_to edit_admins_backoffice_subject_path(subject), class:"btn btn-info btn-circle"  do %>
+                                <i class="fas fa-edit"></i>  
+                            <% end %>    
+                            <%=link_to admins_backoffice_subject_path(subject), method: :delete, data: {confirm: "Deseja realmente excluir esse ASSUNTO/ÁREA?"}, class:"btn btn-danger btn-circle"  do %>
+                                <i class="fas fa-minus"></i>  
+                            <% end %>
+                        <td>       
+                    </tr>
+                <% end %>
+            </tbody>
+            </table>
+            <div class="text-center">
+                <%= paginate @subjects, class:"text-center" %>
+            </div>
+        </div>
+    </div>   
+</div>             
