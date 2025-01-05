@@ -1,4 +1,4 @@
 class UsersBackofficeController < ApplicationController
   before_action :authenticate_user!
-  layout 'Users_BACKOFFICE'
+  layout 'users_backoffice'
 end
