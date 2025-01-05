@@ -3,16 +3,16 @@
     models:
       admin:
         one: Admin
-        others: Administradores
+        other: Administradores
       user:
         one: Usuário
-        others: Usuários
+        other: Usuários
       subject:
         one: Assunto
-        others: Assuntos
+        other: Assuntos
       question:
         one: Pergunta
-        others: Perguntas     
+        other: Perguntas    
     attributes:
       admin:
         id: Código
