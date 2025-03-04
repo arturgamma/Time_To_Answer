@@ -61,20 +61,15 @@ namespace :dev do
   task add_answers_and_questions: :environment do
     Subject.all.each do |subject| 
       rand(5..10).times do |i|
-        params = { question: {
-          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}", 
-          subject: subject,
-          answers_attributes:[]
-        }}
-
+        params = create_question_params(subject)
+        answers_array = params[:question][:answers_attributes]
         rand(2..5).times do |j|
-            params[:question][:answers_attributes].push(
-              { description: Faker::Lorem.sentence, correct: false}
+          answers_array.push( { description: Faker::Lorem.sentence, correct: false}
             )
         end 
 
         index = rand(params[:question][:answers_attributes].size)
-        params[:question][:answers_attributes][index] = { description: Faker::Lorem.sentence, correct: true}
+        answers_array[index] = { description: Faker::Lorem.sentence, correct: true}
 
         Question.create!(params[:question])
       end  
@@ -82,6 +77,15 @@ namespace :dev do
   end
 
   private
+  def create_question_params(subject = Subject.all.sample)
+    { question: {
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}", 
+          subject: subject,
+          answers_attributes:[]
+      }
+    }
+  end      
+
   def show_spinner(msg_start, msg_end = "Concluído com sucesso!")
     spinner = TTY::Spinner.new("[:spinner] #{msg_start}", format: :dots_10)
     spinner.auto_spin
