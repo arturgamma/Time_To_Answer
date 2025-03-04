@@ -31,6 +31,7 @@ gem 'rails-i18n', '~> 5.1'
 gem 'faker'
 gem 'kaminari'
 gem 'kaminari-i18n'
+gem 'cocoon'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
