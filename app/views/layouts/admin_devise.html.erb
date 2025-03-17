@@ -1,16 +1,58 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>TimeToAnswer</title>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>TimeToAnswer - Login - Admin</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
 
-  <body>
-    <h1> Admin Devise Layout </h1>
-    <%= yield %>
-  </body>
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag    'admin_devise' %>
+   
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+      <%= yield %>
+        <!-- Outer Row -->
+    </div>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'admin_devise' %>
+
+  
+<% if flash %>
+  <% flash.each do |key, value| %>
+        <%= javascript_tag do %>
+            $.bootstrapGrowl('<%= value %>', {
+            //ele: 'body', // which element to append to
+            type: 'info', // (null, 'info', 'danger', 'success')
+            //offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+            align: 'center', // ('left', 'right', or 'center')
+            width: 280, // (integer, or 'auto')
+            delay: 3000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+            allow_dismiss: true, // If true then will display a cross to close the popup.
+            stackup_spacing: 10 // spacing between consecutively stacked growls.
+            });
+        <% end %>
+  <% end %>      
+<% end %> 
+</body>
+
 </html>
