@@ -56,6 +56,7 @@ group :development do
   # gem 'spring-watcher-listen', '~> 2.0.0'
   # gem 'ffi', '~> 1.15' # Ou uma versão mais recente compatível com Ruby 2.5.1
   gem 'pry-rails'
+  gem 'rails_db', '>2.0.4'
 end
 
 group :test do
