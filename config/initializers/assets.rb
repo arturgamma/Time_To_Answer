@@ -23,7 +23,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
                                                    custom.js custom.css 
                                                    img.jpg  undraw_profile.svg
                                                    surface-fix.js surface-fix.css
-                                                   navbar.js)
+                                                   navbar-fix.css)
  #vendor/assets
  Rails.application.config.assets.precompile += %w(jquery-2.2.3/dist/jquery.js)
  
