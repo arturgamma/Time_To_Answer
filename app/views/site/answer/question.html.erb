@@ -1,1 +1,5 @@
-<h1> o ID da resposta é <%= params[:answer] %> </h1>
+<% if @answer.correct %>
+    <h1>Resposta correta: </h1>
+<% else %>
+    <h1>Resposta incorreta: </h1>
+<%end%> 
