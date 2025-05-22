@@ -1,0 +1,31 @@
+var element = document.getElementById("submit_<%= @answer.question.id %>");
+
+element.classList.remove("btn-default");
+element.classList.remove("btn-sucess");
+element.classList.remove("btn-danger");
+
+if (<%= @answer.correct %>) {
+  element.classList.add("btn-success");
+  $.bootstrapGrowl('Você acertou \\o/', {
+    //ele: 'body', // which element to append to
+    type: 'success', // (null, 'info', 'danger', 'success')
+    //offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+    align: 'right', // ('left', 'right', or 'center')
+    width: 280, // (integer, or 'auto')
+    delay: 3000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+    allow_dismiss: true, // If true then will display a cross to close the popup.
+    stackup_spacing: 10 // spacing between consecutively stacked growls.
+    });
+} else {
+  element.classList.add("btn-danger");
+  $.bootstrapGrowl('Você Errou :(', {
+    //ele: 'body', // which element to append to
+    type: 'danger', // (null, 'info', 'danger', 'success')
+    //offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+    align: 'right', // ('left', 'right', or 'center')
+    width: 280, // (integer, or 'auto')
+    delay: 3000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+    allow_dismiss: true, // If true then will display a cross to close the popup.
+    stackup_spacing: 10 // spacing between consecutively stacked growls.
+    });
+}
