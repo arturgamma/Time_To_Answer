@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*
-*= require bootstrap/dist/css/bootstrap
-*= require sb-admin-2
-*= require @fortawesome/fontawesome-free/css/fontawesome
-*/
-
+@import "bootstrap/dist/css/bootstrap";
+@import "@fortawesome/fontawesome-free/css/fontawesome";
+@import "@fortawesome/fontawesome-free/css/solid";   // 👈 para ícones sólidos
+@import "@fortawesome/fontawesome-free/css/regular"; // 👈 para ícones regulares
+@import "@fortawesome/fontawesome-free/css/brands";  // 👈 para ícones de marcas
+@import "sb-admin-2";
 
