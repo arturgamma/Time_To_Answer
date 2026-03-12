@@ -5,7 +5,7 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
     def edit
       @user.build_user_profile if @user.user_profile.nil?
     end    
-   
+  
     def update
         if @user.update(params_user)
           bypass_sign_in(@user)
@@ -22,7 +22,7 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
         params[:user].extract!(:password, :password_confirmation) 
       end 
     end
-     
+    
     def set_user
         @user = User.find(current_user.id)
     end     
