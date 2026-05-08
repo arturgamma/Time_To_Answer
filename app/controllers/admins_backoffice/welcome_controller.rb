@@ -1,7 +1,7 @@
 class AdminsBackoffice::WelcomeController < AdminsBackofficeController
   def index
-    @total_users = AdminStatistic.find_by_event(AdminStatistic::EVENTS[:total_users]).value
-    @total_questions = AdminStatistic.find_by_event(AdminStatistic::EVENTS[:total_questions]).value
-    @total_answers = AdminStatistic.find_by_event(AdminStatistic::EVENTS[:total_answers]).value
+    @total_users = AdminStatistic.total_users
+    @total_questions = AdminStatistic.total_questions
+    @total_answers = AdminStatistic.total_answers
   end 
 end
