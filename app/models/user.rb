@@ -9,7 +9,7 @@ class User < ApplicationRecord
   #Callbacks
   after_create :set_statistic
 
-  validates :first_name, presence: true, length: { minimum: 4}, on: :update
+  validates :first_name, presence: true, length: { minimum: 4}, on: :update, unless: :reset_password_token_present?
   
   #virtual attributes
   def full_name  
@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def set_statistic
     AdminStatistic.set_event(AdminStatistic::EVENTS[:total_users])
   end
+
+  def reset_password_token_present?
+    !!$global_params[:reset_password_token]
+  end  
 end
